@@ -10,6 +10,7 @@ public class Player{
         CurrentHitPoints = HitPoints;
         Name = name;
         CurrentLocation = World.Locations[0];
+        CurrentWeapon = World.WeaponByID(1);
 
         for (int i = 0; i < World.RandomGenerator.Next(1, 3); i++){
             HealingItems.Add(World.HealingItems[World.RandomGenerator.Next(1, World.HealingItems.Count) - 1]);
