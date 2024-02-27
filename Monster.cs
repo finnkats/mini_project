@@ -12,4 +12,7 @@ public class Monster{
         CurrentHitPoints = currHP;
         MaximumHitPoints = maxHP;
     }
+    public int GenerateRandomDamage(){
+        return new Random().Next(10, 21);
+    }
 }
