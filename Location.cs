@@ -3,12 +3,12 @@ public class Location
     public int ID;
     public string Name;
     public string Description;
-    public Location? LocationToNorth;
-    public Location? LocationToEast;
-    public Location? LocationToSouth;
-    public Location? LocationToWest;
-    public Quest? QuestAvailableHere;
-    public Monster? MonsterLivingHere;
+    public Location? LocationToNorth = null;
+    public Location? LocationToEast = null;
+    public Location? LocationToSouth = null;
+    public Location? LocationToWest = null;
+    public Quest? QuestAvailableHere = null;
+    public Monster? MonsterLivingHere = null;
     public Location(int id, string name, string description, Quest? QuestHere, Monster? MonsterHere)
     {
         ID = id;

@@ -11,4 +11,13 @@ public class Player{
         CurrentLocation = World.Locations[0];
     }
 
+    public bool TryMoveTo(Location newLocation){
+        if (newLocation != null)
+        {
+            CurrentLocation = newLocation;
+            return true;
+        }
+        return false;
+    }
+
 }
