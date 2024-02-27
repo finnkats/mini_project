@@ -15,7 +15,8 @@ public class Program
             Console.WriteLine();
             Console.WriteLine("N, E, S, W to move in that direction (if possible)");
             Console.WriteLine("Press 'M' to open Map and look at the possible locations");
-            Console.Write("Press \'Q\' when you want to Quit\n>");
+            Console.WriteLine("Press 'I' to use Inventory");
+            Console.Write("Press 'Q' when you want to Quit\n>");
 
             string? Input = Console.ReadLine().ToUpper();
             switch (Input){
@@ -25,6 +26,8 @@ public class Program
                 }; break;
                 case "M":
                 Console.WriteLine(User.CurrentLocation.Compass()); break;
+                case "I":
+                User.UseInventory(); break;
                 case "Q":
                 gameLoop = false; break;
             }

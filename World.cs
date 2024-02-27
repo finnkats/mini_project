@@ -36,6 +36,7 @@ public static class World
         PopulateMonsters();
         PopulateQuests();
         PopulateLocations();
+        PopulateHealingItems();
     }
 
 
