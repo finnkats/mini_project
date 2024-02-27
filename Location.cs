@@ -2,10 +2,10 @@ public class Location
 {
     public int ID;
     public string Name;
-    public Location LocationToNorth;
-    public Location LocationToEast;
-    public Location LocationToSouth;
-    public Location LocationToWest;
+    public Location? LocationToNorth;
+    public Location? LocationToEast;
+    public Location? LocationToSouth;
+    public Location? LocationToWest;
 
     public Location(int id, string name)
     {
@@ -41,7 +41,7 @@ public class Location
         return s;
     }
 
-    public Location GetLocationAt(string location)
+    public Location? GetLocationAt(string location)
     {
         if (location == "N") return LocationToNorth;
         if (location == "E") return LocationToEast;
