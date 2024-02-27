@@ -2,15 +2,18 @@ public class Location
 {
     public int ID;
     public string Name;
+    public string Description;
     public Location? LocationToNorth;
     public Location? LocationToEast;
     public Location? LocationToSouth;
     public Location? LocationToWest;
 
-    public Location(int id, string name)
+    // World.cs has null, null paramaters at the end
+    public Location(int id, string name, string description, int? a, int? b)
     {
         ID = id;
         Name = name;
+        Description = description;
     }
 
     public string Compass()
