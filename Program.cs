@@ -1,28 +1,30 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 public class Program
 {
     public static void Main()
     {
         Console.WriteLine("Starting the game...");
-
+        Console.Write("Enter character name:\n>");
+        // Sets User hitpoints to 100 and their name
+        Player User = new(100, Console.ReadLine());
         bool gameLoop = true;
         while(gameLoop)
         {
-            Console.WriteLine("\nPress \'Q\' when you want to quit");
-            Console.WriteLine("\nOr press any other key to start the game");
+            Console.WriteLine("Press 'M' to open Map and look at the possible locations");
+            Console.Write("Press \'Q\' when you want to Quit\n>");
 
-            if(Console.ReadKey(true).Key == ConsoleKey.Q)
-            {
-                gameLoop = false;
-                Console.WriteLine("Quitting the game...");
+            string? Input = Console.ReadLine().ToUpper();
+            switch (Input){
+                case "M":
+                Console.WriteLine(User.CurrentLocation.Compass()); break;
+                case "Q":
+                gameLoop = false; break;
             }
-            else
-            {
-                // Explore the word in this code block
-                // Console.WriteLine("")
-            }
+            
         }
         // For messages or functions after quitting the game
+        Console.WriteLine("Quitting the game...");
     }
 }
