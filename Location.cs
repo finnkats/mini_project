@@ -7,13 +7,15 @@ public class Location
     public Location? LocationToEast;
     public Location? LocationToSouth;
     public Location? LocationToWest;
-
-    // World.cs has null, null paramaters at the end
-    public Location(int id, string name, string description, int? a, int? b)
+    public Quest? QuestAvailableHere;
+    public Monster? MonsterLivingHere;
+    public Location(int id, string name, string description, Quest? QuestHere, Monster? MonsterHere)
     {
         ID = id;
         Name = name;
         Description = description;
+        QuestAvailableHere = QuestHere;
+        MonsterLivingHere = MonsterHere;
     }
 
     public string Compass()
