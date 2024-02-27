@@ -1,9 +1,12 @@
+using System.Net.Http.Headers;
+
 public static class World
 {
     public static readonly List<Weapon> Weapons = new List<Weapon>();
     public static readonly List<Monster> Monsters = new List<Monster>();
     public static readonly List<Quest> Quests = new List<Quest>();
     public static readonly List<Location> Locations = new List<Location>();
+    public static readonly List<HealingItem> HealingItems = new();
     public static readonly Random RandomGenerator = new Random();
 
     public const int WEAPON_ID_RUSTY_SWORD = 1;
@@ -33,6 +36,7 @@ public static class World
         PopulateMonsters();
         PopulateQuests();
         PopulateLocations();
+        PopulateHealingItems();
     }
 
 
@@ -150,6 +154,25 @@ public static class World
         Locations.Add(farmersField);
         Locations.Add(bridge);
         Locations.Add(spiderField);
+    }
+
+    public static void PopulateHealingItems(){
+        HealingItem Bread = new("Bread", "A nice small piece of bread, healing you a little.", 15);
+        HealingItem Potion = new("Potion", "A homebrewed health potion!", 40);
+        HealingItem RottenApple = new("Rotten Apple", "A very old apple", -10);
+
+        HealingItems.Add(Bread);
+        HealingItems.Add(Potion);
+        HealingItems.Add(RottenApple);
+    }
+
+    public static HealingItem? HealingItemByName(string name){
+        foreach (HealingItem item in HealingItems){
+            if (item.Name == name){
+                return item;
+            }
+        }
+        return null;
     }
 
     public static Location? LocationByID(int id)
