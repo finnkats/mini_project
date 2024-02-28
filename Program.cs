@@ -19,10 +19,13 @@ public class Program
             Console.Write("Press 'Q' when you want to Quit\n>");
 
             string? Input = Console.ReadLine().ToUpper();
+            Console.WriteLine();
             switch (Input){
                 case "N": case "E": case "S": case "W":
                 if (!User.TryMoveTo(User.CurrentLocation.GetLocationAt(Input))){
                     Console.WriteLine("You can't go that way.");
+                } else {
+                    Console.WriteLine($"You arived at {User.CurrentLocation.Name}.\n~{User.CurrentLocation.Description}~");
                 }; break;
                 case "M":
                 Console.WriteLine(User.CurrentLocation.Compass()); break;
