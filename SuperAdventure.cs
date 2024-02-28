@@ -7,7 +7,8 @@ public static class SuperAdventure{
         Console.WriteLine("press 'F' to engage in a fight");
         Console.WriteLine("Press 'R' to Run away");
 
-        string userChoice = Console.ReadLine().ToUpper();
+        string? userChoice = Console.ReadLine();
+        if (userChoice != null) userChoice = userChoice.ToUpper();
         if (userChoice ==  "F"){
             Console.WriteLine($"{player.Name} decides to engage in a fight!");
 
@@ -15,7 +16,8 @@ public static class SuperAdventure{
                 Console.WriteLine($"Options:");
                 Console.WriteLine("Press 'A' to Attack");
                 Console.WriteLine("Press 'N' to do nothing");
-                string actionChoice = Console.ReadLine().ToUpper();
+                string? actionChoice = Console.ReadLine();
+                if (actionChoice != null) actionChoice = actionChoice.ToUpper();
 
                 switch(actionChoice){
                     case "A":

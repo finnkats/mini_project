@@ -2,7 +2,7 @@ public class Player{
     public int MaximumHitPoints;
     public int CurrentHitPoints;
     public Location CurrentLocation;
-    public Weapon? CurrentWeapon = null;
+    public Weapon CurrentWeapon;
     public string? Name;
     public List<HealingItem> HealingItems = new();
     public List<int> DefeatedMonsters = new();
@@ -14,14 +14,14 @@ public class Player{
         CurrentHitPoints = HitPoints;
         Name = name;
         CurrentLocation = World.Locations[0];
-        CurrentWeapon = World.WeaponByID(1);
+        CurrentWeapon = World.Weapons[0];
 
         for (int i = 0; i < World.RandomGenerator.Next(1, 3); i++){
             HealingItems.Add(World.HealingItems[World.RandomGenerator.Next(1, World.HealingItems.Count) - 1]);
         }
     }
 
-    public bool TryMoveTo(Location newLocation){
+    public bool TryMoveTo(Location? newLocation){
         if (newLocation != null)
         {
             CurrentLocation = newLocation;
@@ -62,7 +62,7 @@ public class Player{
     }
 
     public void Death(){
-        CurrentLocation = World.LocationByID(World.LOCATION_ID_HOME);
+        CurrentLocation = World.Locations[0];
         CurrentHitPoints = MaximumHitPoints;
         Console.WriteLine("You are back home.");
     }

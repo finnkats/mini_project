@@ -19,7 +19,8 @@ public class Program
             Console.WriteLine("Press 'I' to use Inventory");
             Console.Write("Press 'Q' when you want to Quit\n>");
 
-            string? Input = Console.ReadLine().ToUpper();
+            string? Input = Console.ReadLine();
+            if (Input != null) Input = Input.ToUpper();
             Console.WriteLine();
             switch (Input){
                 case "N": case "E": case "S": case "W":
