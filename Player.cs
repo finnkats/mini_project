@@ -5,6 +5,8 @@ public class Player{
     public Weapon? CurrentWeapon = null;
     public string? Name;
     public List<HealingItem> HealingItems = new();
+    public List<int> DefeatedMonsters = new();
+    public int QuestsCompleted = 0;
 
     public int keys;
     public Player(int HitPoints, string? name){
@@ -57,5 +59,11 @@ public class Player{
             CurrentHitPoints = MaximumHitPoints;
         }
         return true;
+    }
+
+    public void Death(){
+        CurrentLocation = World.LocationByID(World.LOCATION_ID_HOME);
+        CurrentHitPoints = MaximumHitPoints;
+        Console.WriteLine("You are back home.");
     }
 }

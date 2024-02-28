@@ -53,6 +53,7 @@ public static class SuperAdventure{
                         Console.WriteLine("Invalid choice. Please choose again.");
                         break;
                 }
+                Console.WriteLine();
             }
     }  else if (userChoice == "R"){
             Console.WriteLine($"{player.Name} decides to run away!");

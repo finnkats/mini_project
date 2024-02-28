@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
 
 public class Program
@@ -26,6 +27,16 @@ public class Program
                     Console.WriteLine("You can't go that way.");
                 } else {
                     Console.WriteLine($"You arived at {User.CurrentLocation.Name}.\n~{User.CurrentLocation.Description}~");
+                    if (User.CurrentLocation.QuestAvailableHere != null){
+                        gameLoop = !User.CurrentLocation.QuestAvailableHere.CheckQuest(User);
+                    } else if (User.CurrentLocation.MonsterLivingHere != null &&
+                               !User.DefeatedMonsters.Contains(User.CurrentLocation.MonsterLivingHere.ID)){
+                        if (!SuperAdventure.Fight(User, User.CurrentLocation.MonsterLivingHere)){
+                            User.Death();
+                        } else {
+                            User.DefeatedMonsters.Add(User.CurrentLocation.MonsterLivingHere.ID);
+                        };
+                    }
                 }; break;
                 case "M":
                 Console.WriteLine(User.CurrentLocation.Compass()); break;
