@@ -5,6 +5,8 @@ public class Player{
     public Weapon? CurrentWeapon = null;
     public string? Name;
     public List<HealingItem> HealingItems = new();
+
+    public int keys;
     public Player(int HitPoints, string? name){
         MaximumHitPoints = HitPoints;
         CurrentHitPoints = HitPoints;
