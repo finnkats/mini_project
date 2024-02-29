@@ -1,5 +1,3 @@
-using System.Net.Http.Headers;
-
 public static class World
 {
     public static readonly List<Weapon> Weapons = new List<Weapon>();
